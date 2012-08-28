@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.email       = ["a.tamoykin@gmail.com"]
   s.homepage    = "http://github.com/fsproru/simple-git-pair"
   s.summary     = "Adds your pair to a commit message"
-  s.description = "Changes user.name setting in git config only, \
-                   so github can still understand which account makes a commit"
+  s.description = "Changes only user.name setting in git config, \
+                   so github can still understand under which account a code was committed"
   s.files        = Dir["{lib}/**/*.rb", "bin/*", "LICENSE", "*.md"]
   s.require_path = 'lib'
 end
