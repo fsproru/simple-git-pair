@@ -1,9 +1,26 @@
-require 'spec_helper'
 require 'simple-git-pair/helper'
 
 describe SimpleGitPair::Helper do
   describe :names_for do
-    it ""
+    before do
+      YAML.stub(:load_file).and_return(
+        { "pm" => "Pac Man", "sm" => "Super Mario" }
+      )
+    end
+
+    subject {described_class.names_for initials}
+
+    context "there is NO user in pairs file" do
+      let(:initials) { ["non_existent_pair"] }
+      it { expect { subject }.to raise_error }
+    end
+
+    context "there are users in pairs file" do
+      let(:initials) { ["pm", "sm"] }
+      it 'returns array with user names' do
+        subject.should == ["Pac Man", "Super Mario"]
+      end
+    end
   end
 
   describe :check_for_pairs_file do
