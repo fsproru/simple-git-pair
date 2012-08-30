@@ -6,8 +6,11 @@ module SimpleGitPair
       PAIRS_FILE = File.expand_path('~/.pairs')
 
       def show_help
-        p "Changes your git user.name to specified names from #{PAIRS_FILE}"
-        p "Usage: git-pair <initial1> <initial2>"
+        puts <<-EOS
+
+          Changes your git user.name to specified names from #{PAIRS_FILE}
+          Usage: git-pair <initial1> <initial2>
+        EOS
       end
 
       def complain_about_pairs_file
@@ -16,7 +19,6 @@ module SimpleGitPair
           Please create .pairs file in your home directory in yaml format:
             ae: Alfred Einstein
             nt: Nikola Tesla
-
         EOS
       end
 
