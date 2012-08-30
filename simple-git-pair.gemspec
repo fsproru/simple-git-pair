@@ -12,4 +12,6 @@ Gem::Specification.new do |s|
                    so github can still understand under which account a code was committed"
   s.files        = Dir["{lib}/**/*.rb", "bin/*", "LICENSE", "*.md"]
   s.require_path = 'lib'
+
+  s.add_development_dependency 'rspec'
 end
