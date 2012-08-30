@@ -36,7 +36,7 @@ module SimpleGitPair
 
       def check_for_pairs_file
         unless File.exist? PAIRS_FILE
-          complain_about_pairs_file and exit 0
+          complain_about_pairs_file
           exit 1
         end
       end
