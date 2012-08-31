@@ -1,8 +1,4 @@
 #!/usr/bin/env ruby
 require 'simple-git-pair'
 
-SimpleGitPair::Helper.show_help and exit 0 if ARGV.delete "--help" or ARGV.delete "-h" or ARGV.empty?
-SimpleGitPair::Helper.check_for_pairs_file
-
-system "git config user.name '#{(SimpleGitPair::Helper.names_for ARGV).join ' & '}'"
-system "git config user.name"
+SimpleGitPair::Cli.new(ARGV).run!
