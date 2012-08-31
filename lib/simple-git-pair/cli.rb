@@ -1,3 +1,5 @@
+require 'simple-git-pair/helper'
+
 module SimpleGitPair
   class Cli
     attr_accessor :opts
