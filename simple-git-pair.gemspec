@@ -12,6 +12,8 @@ Gem::Specification.new do |s|
                    so github can still understand under which account a code was committed"
   s.files        = Dir["{lib}/**/*.rb", "bin/*", "LICENSE", "*.md"]
   s.require_path = 'lib'
+  s.executables  = Dir["bin/*"]
+  s.test_files   = Dir["spec/**/*.rb"]
 
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'debugger'
