@@ -2,3 +2,4 @@
 tags
 Gemfile.lock
 .rvmrc
+*.gem
