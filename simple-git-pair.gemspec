@@ -16,5 +16,6 @@ Gem::Specification.new do |s|
   s.test_files   = Dir["spec/**/*.rb"]
 
   s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rake'
   s.add_development_dependency 'debugger'
 end
