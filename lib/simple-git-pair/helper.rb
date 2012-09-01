@@ -3,7 +3,7 @@ require 'yaml'
 module SimpleGitPair
   module Helper
     class << self
-      PAIRS_FILE = File.expand_path('~/.pairs')
+      PAIRS_FILE = File.expand_path('~/.git_pairs')
 
       def show_help
         puts <<-EOS
@@ -16,7 +16,7 @@ module SimpleGitPair
       def complain_about_pairs_file
         puts <<-EOS
 
-          Please create .pairs file in your home directory in yaml format:
+          Please create .git_pairs file in your home directory in yaml format:
             ae: Alfred Einstein
             nt: Nikola Tesla
         EOS
