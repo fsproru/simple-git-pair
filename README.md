@@ -23,4 +23,4 @@ ae: Alfred Einstein
  - git pair list # lists all available pairs
 
 ## Issues and Contributions
-Feel free to submit issues or pull requests.
+Feel free to submit [issues](https://github.com/fsproru/simple-git-pair/issues) or pull requests.
