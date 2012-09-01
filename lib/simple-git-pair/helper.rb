@@ -16,7 +16,7 @@ module SimpleGitPair
       def complain_about_pairs_file
         puts <<-EOS
 
-          Please create .git_pairs file in your home directory in yaml format:
+          Please create #{PAIRS_FILE.split("/").last} file in your home directory in yaml format:
             ae: Alfred Einstein
             nt: Nikola Tesla
         EOS
