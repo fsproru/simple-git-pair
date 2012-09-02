@@ -3,31 +3,35 @@ require 'simple-git-pair/version'
 module SimpleGitPair
   module Helper
     class << self
-      PAIRS_FILE = File.expand_path('~/.git_pairs')
+      PAIRS_FILE_NAME = '.git_pairs'
+      PAIRS_FILE_PATH = File.expand_path("~/#{PAIRS_FILE_NAME}")
 
       def show_help
         puts <<-EOS
 
           #{SUMMARY}
           Usage: git-pair <initial1> <initial2>
+
+          Commands:
+            init - creates sample #{PAIRS_FILE_NAME} config
         EOS
       end
 
       def complain_about_pairs_file
         puts <<-EOS
 
-          Please create #{PAIRS_FILE.split("/").last} file in your home directory in yaml format:
+          Please create #{PAIRS_FILE_NAME} file in your home directory in yaml format:
             ae: Alfred Einstein
             nt: Nikola Tesla
         EOS
       end
 
       def names_for args
-        pairs = YAML.load_file PAIRS_FILE
+        pairs = YAML.load_file PAIRS_FILE_PATH
 
         names = []
         args.each do |opt|
-          raise "There is no entry for #{opt} in #{PAIRS_FILE}" unless pairs[opt]
+          raise "There is no entry for #{opt} in #{PAIRS_FILE_PATH}" unless pairs[opt]
           names << pairs[opt]
         end
 
@@ -35,7 +39,11 @@ module SimpleGitPair
       end
 
       def pairs_file_exists?
-        File.exist? PAIRS_FILE
+        File.exist? PAIRS_FILE_PATH
+      end
+
+      def create_pairs_file
+        File.open(PAIRS_FILE_PATH, "w") { |f| f.write "nl: Nikola Tesla\nae: Alfred Einstein" }
       end
     end
   end
