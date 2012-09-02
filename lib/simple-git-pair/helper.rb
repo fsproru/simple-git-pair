@@ -52,7 +52,7 @@ module SimpleGitPair
       end
 
       def create_pairs_file
-        File.open(PAIRS_FILE_PATH, "w") { |f| f.write "nl: Nikola Tesla\nae: Alfred Einstein" }
+        File.open(PAIRS_FILE_PATH, "w") { |f| f.write "nt: Nikola Tesla\nae: Alfred Einstein" }
       end
     end
   end
