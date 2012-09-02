@@ -26,6 +26,12 @@ module SimpleGitPair
         EOS
       end
 
+      def say_pairs_file_exists
+        puts <<-EOS
+          #{PAIRS_FILE_PATH} already exists. You're good to go.
+        EOS
+      end
+
       def names_for args
         pairs = YAML.load_file PAIRS_FILE_PATH
 

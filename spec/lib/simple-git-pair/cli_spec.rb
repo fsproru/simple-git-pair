@@ -75,7 +75,7 @@ describe SimpleGitPair::Cli do
       context "pairs file already exists" do
         before { SimpleGitPair::Helper.stub(:pairs_file_exists?).and_return true }
         it "complains and exit" do
-          SimpleGitPair::Helper.should_receive :complain_that_pairs_file_exists
+          SimpleGitPair::Helper.should_receive :say_pairs_file_exists
           subject.should be_false
         end
       end

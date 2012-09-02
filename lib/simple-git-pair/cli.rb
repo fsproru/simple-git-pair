@@ -31,8 +31,7 @@ module SimpleGitPair
 
     def init_cmd
       if Helper.pairs_file_exists?
-        Helper.complain_that_pairs_file_exists
-        false
+        Helper.say_pairs_file_exists
       else
         Helper.create_pairs_file
       end
