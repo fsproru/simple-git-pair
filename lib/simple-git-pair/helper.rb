@@ -1,4 +1,4 @@
-require 'yaml'
+require 'simple-git-pair/version'
 
 module SimpleGitPair
   module Helper
@@ -8,7 +8,7 @@ module SimpleGitPair
       def show_help
         puts <<-EOS
 
-          Changes your git user.name to specified names from #{PAIRS_FILE}
+          #{SUMMARY}
           Usage: git-pair <initial1> <initial2>
         EOS
       end

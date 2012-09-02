@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Alexander Tamoykin"]
   s.email       = ["a.tamoykin@gmail.com"]
   s.homepage    = "http://github.com/fsproru/simple-git-pair"
-  s.summary     = "Adds your pair to a commit message"
+  s.summary     = SimpleGitPair::SUMMARY
   s.description = "Changes only user.name setting in git config, \
                    so github can still understand under which account a code was committed"
   s.files        = Dir["{lib}/**/*.rb", "bin/*", "LICENSE", "*.md"]
