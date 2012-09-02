@@ -23,7 +23,13 @@ module SimpleGitPair
         exit 1
       end
 
-      system "git config user.name '#{(Helper.names_for ARGV).join ' & '}'"
+      begin
+        system "git config user.name '#{(Helper.names_for ARGV).join ' & '}'"
+      rescue Helper::NotFoundException => ex
+        puts ex.message
+        exit 1
+      end
+
       system "git config user.name" # output current username
     end
 

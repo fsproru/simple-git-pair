@@ -67,6 +67,17 @@ describe SimpleGitPair::Cli do
           subject
         end
       end
+
+      context "and passed initial is unknown" do
+        let(:opts) { ['unknown_dude'] }
+        let(:ex)   { SimpleGitPair::Helper::NotFoundException.new "I don't know about #{opts.first}" }
+        before {
+          SimpleGitPair::Helper.stub(:pairs_file_exists?).and_return true
+          SimpleGitPair::Helper.stub(:names_for).and_raise ex
+          cli.stub! :system
+        }
+        it { expect { subject }.to raise_error SystemExit }
+      end
     end
 
     describe "#init_cmd" do

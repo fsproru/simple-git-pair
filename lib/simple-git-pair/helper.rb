@@ -2,6 +2,9 @@ require 'simple-git-pair/version'
 
 module SimpleGitPair
   module Helper
+
+    class NotFoundException < Exception; end
+
     class << self
       PAIRS_FILE_NAME = '.git_pairs'
       PAIRS_FILE_PATH = File.expand_path("~/#{PAIRS_FILE_NAME}")
@@ -37,7 +40,7 @@ module SimpleGitPair
 
         names = []
         args.each do |opt|
-          raise "There is no entry for #{opt} in #{PAIRS_FILE_PATH}" unless pairs[opt]
+          raise NotFoundException.new "There is no entry for #{opt} in #{PAIRS_FILE_PATH}" unless pairs[opt]
           names << pairs[opt]
         end
 
