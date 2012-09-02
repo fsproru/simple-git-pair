@@ -18,6 +18,10 @@ ae: Alfred Einstein
 ...
 ```
 
+## Supported Rubies
+ - 1.9.3
+ - 1.8.7
+
 ## Future Development
  - git pair init # creates simple .git_pairs file
  - git pair add <initial> <full_name> # adds an author to .git_pairs
