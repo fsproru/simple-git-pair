@@ -1,3 +1,4 @@
+require 'yaml'
 require 'simple-git-pair/version'
 
 module SimpleGitPair
