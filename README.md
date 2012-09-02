@@ -4,14 +4,19 @@
 Simple way to add your pair to a git commit message.
 
 ## Description
-Unlike many other gems it doesn NOT change your email address in git config, so Github can associate your commit to github account properly.
+Unlike many other gems it changes only user.name and does NOT change your email address in git config,
+so Github can associate your commit to github account properly. 
 This is especially useful for Github graphs and statistics.
 
-## Usage
-`git pair nt ae` # changes your git user.name to "Nicola Tesla & Alfred Einstein"
+## Installation and Usage
+```sh
+gem install simple-git-pair
+git pair init
+git pair nt ae # changes your git user.name to "Nicola Tesla & Alfred Einstein"
+```
 
 ## Configuration
-Create and keep your pairs in `.git_pairs` file in your home directory in yaml format, e.g.
+Keep your pairs in `.git_pairs` file in your home directory in yaml format, e.g.
 ```yml
 nt: Nicola Tesla
 ae: Alfred Einstein
@@ -23,7 +28,6 @@ ae: Alfred Einstein
  - 1.8.7
 
 ## Future Development
- - git pair init # creates simple .git_pairs file
  - git pair add <initial> <full_name> # adds an author to .git_pairs
  - git pair delete <initial> # deletes a pair from .git_pairs
  - git pair list # lists all available pairs
