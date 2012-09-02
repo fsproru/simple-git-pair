@@ -75,6 +75,7 @@ describe SimpleGitPair::Cli do
           SimpleGitPair::Helper.stub(:pairs_file_exists?).and_return true
           SimpleGitPair::Helper.stub(:names_for).and_raise ex
           cli.stub! :system
+          cli.should_receive(:puts).with(ex.message)
         }
         it { expect { subject }.to raise_error SystemExit }
       end
