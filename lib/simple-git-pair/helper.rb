@@ -1,4 +1,4 @@
-require 'yaml'
+require 'yaml' # need to explicitly require yaml for ruby 1.8.7
 require 'simple-git-pair/version'
 
 module SimpleGitPair
