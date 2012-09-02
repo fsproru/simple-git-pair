@@ -24,6 +24,14 @@ describe SimpleGitPair::Cli do
       end
     end
 
+    context "'init' command" do
+      let(:opts) { ['init'] }
+      it "runs init cmd" do
+        cli.should_receive :init_cmd
+        expect { subject }.to raise_error SystemExit
+      end
+    end
+
     context "there is NO pairs file" do
       before { SimpleGitPair::Helper.stub(:pairs_file_exists?).and_return false }
       let(:opts) { ["some_initials"] }
@@ -57,6 +65,26 @@ describe SimpleGitPair::Cli do
         it "changes only username to single name" do
           cli.should_receive(:system).with("git config user.name 'Pac Man'")
           subject
+        end
+      end
+    end
+
+    describe "#init_cmd" do
+      subject { cli.send :init_cmd }
+
+      context "pairs file already exists" do
+        before { SimpleGitPair::Helper.stub(:pairs_file_exists?).and_return true }
+        it "complains and exit" do
+          SimpleGitPair::Helper.should_receive :complain_that_pairs_file_exists
+          subject.should be_false
+        end
+      end
+
+      context "there is no pairs file" do
+        before { SimpleGitPair::Helper.stub(:pairs_file_exists?).and_return false }
+        it "creates a pairs file" do
+          SimpleGitPair::Helper.should_receive(:create_pairs_file).and_return true
+          subject.should be_true
         end
       end
     end

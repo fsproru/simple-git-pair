@@ -14,6 +14,10 @@ module SimpleGitPair
         exit 0
       end
 
+      if opts.delete "init"
+        exit(init_cmd ? 0 : 1)
+      end
+
       unless Helper.pairs_file_exists?
         Helper.complain_about_pairs_file
         exit 1
@@ -21,6 +25,17 @@ module SimpleGitPair
 
       system "git config user.name '#{(Helper.names_for ARGV).join ' & '}'"
       system "git config user.name" # output current username
+    end
+
+    private
+
+    def init_cmd
+      if Helper.pairs_file_exists?
+        Helper.complain_that_pairs_file_exists
+        false
+      else
+        Helper.create_pairs_file
+      end
     end
   end
 end
