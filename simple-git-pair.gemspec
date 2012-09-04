@@ -12,9 +12,11 @@ Gem::Specification.new do |s|
   s.files        = Dir["{lib}/**/*.rb", "bin/*", "LICENSE", "*.md"]
   s.require_path = 'lib'
   s.executables  = "git-pair"
-  s.test_files   = Dir["spec/**/*.rb"]
+  s.test_files   = Dir["spec/**/*.rb", "features/**/*.rb"]
 
   s.add_development_dependency 'rspec'
+  s.add_development_dependency 'aruba'
+  s.add_development_dependency 'cucumber'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'debugger'
 end
