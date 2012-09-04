@@ -3,3 +3,4 @@ tags
 Gemfile.lock
 .rvmrc
 *.gem
+features/tmp/*
