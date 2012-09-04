@@ -17,7 +17,7 @@ describe SimpleGitPair::Cli do
     end
 
     context "with --help or -h option" do
-      let(:opts) { ['--help', '-h'] }
+      let(:opts) { ['--help', '-h', 'help'] }
       it "shows help" do
         SimpleGitPair::Helper.should_receive :show_help
         expect { subject }.to raise_error SystemExit

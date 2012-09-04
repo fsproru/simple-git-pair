@@ -9,7 +9,7 @@ module SimpleGitPair
     end
 
     def run!
-      if opts.delete "--help" or opts.delete "-h" or opts.empty?
+      if opts.delete "--help" or opts.delete "-h" or opts.delete "help" or opts.empty?
         Helper.show_help
         exit 0
       end
