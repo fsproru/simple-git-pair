@@ -8,7 +8,7 @@ module SimpleGitPair
 
     class << self
       PAIRS_FILE_NAME = '.git_pairs'
-      PAIRS_FILE_PATH = File.expand_path("~/#{PAIRS_FILE_NAME}")
+      PAIRS_FILE_PATH = File.join ENV['HOME'], PAIRS_FILE_NAME
 
       def show_help
         puts <<-EOS

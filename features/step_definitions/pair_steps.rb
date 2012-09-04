@@ -1,21 +1,16 @@
-GIT_REPO   = 'my-repo'
-# PAIRS_FILE = '.git_pairs'
-PAIRS_FILE = File.expand_path '~/.git_pairs'
-
 Given /^there is a local repo$/ do
-  step %Q{a directory named "#{GIT_REPO}"}
-  step %Q{I cd to "#{GIT_REPO}"}
+  @git_repo   = 'my-repo'
+  step %Q{a directory named "#{@git_repo}"}
+  step %Q{I cd to "#{@git_repo}"}
   step 'I run `git init`'
 end
 
 Given /^there is no pairs file$/ do
-  # TODO: use pairs file in features/tmp for testing
-  # pairs_file = File.join CUKE_TMP_DIR, GIT_REPO, PAIRS_FILE
-  step %Q{I remove the file "#{PAIRS_FILE}"} if File.exists? PAIRS_FILE
+  step %Q{I remove the file "#{@pairs_file}"} if File.exists? @pairs_file
 end
 
 Then /^it creates a sample pairs file$/ do
-  step %Q{a file named "#{PAIRS_FILE}" should exist}
+  step %Q{a file named "#{@pairs_file}" should exist}
 end
 
 When /^the git username should be "(.*?)"$/ do |username|
@@ -31,5 +26,5 @@ end
 
 Then /^I should see "(.*?)" on the commit$/ do |username|
   step 'I run `git --no-pager log`'
-  step %Q{the output should contain "(#{username}) some changes"}
+  step %Q{the output should contain "Author: #{username}"}
 end
