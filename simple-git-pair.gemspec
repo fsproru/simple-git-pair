@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.executables  = "git-pair"
   s.test_files   = Dir["spec/**/*.rb", "features/**/*.rb"]
 
+  s.add_runtime_dependency 'commander'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'aruba'
   s.add_development_dependency 'cucumber'

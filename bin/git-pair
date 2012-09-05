@@ -1,4 +1,34 @@
 #!/usr/bin/env ruby
+require 'rubygems'
+require 'commander/import'
 require 'simple-git-pair'
 
-SimpleGitPair::Cli.new(ARGV).run!
+BINARY_NAME = "git pair"
+
+#TODO: figure out a better way to output usage first
+program :name,           "\n  Usage:\n    #{BINARY_NAME} <initials>"
+program :version,        SimpleGitPair::VERSION
+program :description,    SimpleGitPair::SUMMARY
+program :int_message,    "Good bye"
+program :help,           'Example', 'git pair nt ae       Changes your git user.name to "Nicola Tesla & Alfred Einstein"'
+program :help_formatter, :compact
+
+default_command :change
+
+command :init do |c|
+  c.syntax = "#{BINARY_NAME} init"
+  c.description = "Creates a sample config file"
+  c.example "Creates .git_pairs in your home directory", "#{BINARY_NAME} init"
+  c.action do |args, options|
+    SimpleGitPair::Cli.new.send :init_cmd
+  end
+end
+
+command :change do |c|
+  c.description = "Changes your git user.name"
+  c.syntax = "git pair change <initials>"
+  c.example 'Nicola Tesla & Alfred Einstein', "#{BINARY_NAME} change nt ae"
+  c.action do |args, options|
+    SimpleGitPair::Cli.new(args).run!
+  end
+end
