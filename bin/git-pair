@@ -29,6 +29,10 @@ command :change do |c|
   c.syntax = "git pair change <initials>"
   c.example 'Nicola Tesla & Alfred Einstein', "#{BINARY_NAME} change nt ae"
   c.action do |args, options|
-    SimpleGitPair::Command::Change.new(args).run!
+    if args.empty?
+      commands['help'].run
+    else
+      SimpleGitPair::Command::Change.new(args).run!
+    end
   end
 end
