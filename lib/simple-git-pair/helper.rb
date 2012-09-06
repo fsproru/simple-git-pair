@@ -10,29 +10,18 @@ module SimpleGitPair
       PAIRS_FILE_NAME = '.git_pairs'
       PAIRS_FILE_PATH = File.join ENV['HOME'], PAIRS_FILE_NAME
 
-      def show_help
-        puts <<-EOS
-
-          #{SUMMARY}
-          Usage: git-pair <initial1> <initial2>
-
-          Commands:
-            init - creates sample #{PAIRS_FILE_NAME} config
-        EOS
-      end
-
       def complain_about_pairs_file
         puts <<-EOS
 
-          Please create #{PAIRS_FILE_NAME} file in your home directory in yaml format:
-            ae: Alfred Einstein
-            nt: Nikola Tesla
+  Please create #{PAIRS_FILE_NAME} file in your home directory in yaml format:
+    ae: Alfred Einstein
+    nt: Nikola Tesla
         EOS
       end
 
       def say_pairs_file_exists
         puts <<-EOS
-          #{PAIRS_FILE_PATH} already exists. You're good to go.
+  #{PAIRS_FILE_PATH} already exists. You're good to go.
         EOS
       end
 
