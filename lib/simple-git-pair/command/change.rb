@@ -11,7 +11,7 @@ module SimpleGitPair
         end
 
         begin
-          system "git config user.name '#{(Helper.names_for ARGV).join ' & '}'"
+          system "git config user.name '#{(Helper.names_for opts).join ' & '}'"
         rescue Helper::NotFoundException => ex
           puts ex.message
           exit 1
