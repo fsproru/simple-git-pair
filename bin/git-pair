@@ -20,7 +20,7 @@ command :init do |c|
   c.description = "Creates a sample config file"
   c.example "Creates .git_pairs in your home directory", "#{BINARY_NAME} init"
   c.action do |args, options|
-    SimpleGitPair::Cli.new.send :init_cmd
+    SimpleGitPair::Command::Init.new.run!
   end
 end
 
@@ -29,6 +29,6 @@ command :change do |c|
   c.syntax = "git pair change <initials>"
   c.example 'Nicola Tesla & Alfred Einstein', "#{BINARY_NAME} change nt ae"
   c.action do |args, options|
-    SimpleGitPair::Cli.new(args).run!
+    SimpleGitPair::Command::Change.new(args).run!
   end
 end
