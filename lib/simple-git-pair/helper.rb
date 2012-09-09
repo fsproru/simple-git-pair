@@ -12,17 +12,13 @@ module SimpleGitPair
 
       def complain_about_pairs_file
         puts <<-EOS
-
-  Please create #{PAIRS_FILE_NAME} file in your home directory in yaml format:
-    ae: Alfred Einstein
-    nt: Nikola Tesla
+Couldn't find #{PAIRS_FILE_PATH}
+Please run: git pair init
         EOS
       end
 
       def say_pairs_file_exists
-        puts <<-EOS
-  #{PAIRS_FILE_PATH} already exists. You're good to go.
-        EOS
+        puts "#{PAIRS_FILE_PATH} already exists. You're good to go."
       end
 
       def names_for args
