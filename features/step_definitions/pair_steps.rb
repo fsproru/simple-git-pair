@@ -28,3 +28,7 @@ Then /^I should see "(.*?)" on the commit$/ do |username|
   step 'I run `git --no-pager log`'
   step %Q{the output should contain "Author: #{username}"}
 end
+
+Then /^it should offer to create a sample config$/ do
+  step %Q{the output should contain "Create a sample one?"}
+end
