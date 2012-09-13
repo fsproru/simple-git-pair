@@ -9,7 +9,7 @@ module SimpleGitPair
         self.opts = opts
       end
 
-      def run!(args = [])
+      def run!
         raise "Could you implement run! method on #{self.class}?"
       end
 
