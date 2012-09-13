@@ -1,5 +1,4 @@
 require 'simple-git-pair/command/base'
-require 'simple-git-pair/helper'
 
 module SimpleGitPair
   module Command
