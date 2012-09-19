@@ -22,7 +22,7 @@ Please run: git pair init
       end
 
       def names_for args
-        pairs = YAML.load_file PAIRS_FILE_PATH
+        pairs = read_pairs
 
         names = []
         args.each do |opt|
@@ -39,6 +39,16 @@ Please run: git pair init
 
       def create_pairs_file
         File.open(PAIRS_FILE_PATH, "w") { |f| f.write "nt: Nikola Tesla\nae: Alfred Einstein" }
+      end
+
+      def save_pairs hash
+        File.open(PAIRS_FILE_PATH, 'w' ) do |file|
+          YAML.dump( hash, file )
+        end
+      end
+
+      def read_pairs
+        YAML.load_file PAIRS_FILE_PATH
       end
     end
   end
