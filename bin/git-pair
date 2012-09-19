@@ -15,7 +15,7 @@ program :help_formatter, :compact
 
 default_command :change
 command :change do |c|
-  c.description = "Changes your git user.name"
+  c.description = "Change your git user.name"
   c.syntax = "git pair change <initials>"
   c.example 'Nicola Tesla & Alfred Einstein', "#{BINARY_NAME} change nt ae"
   c.action do |args, options|
@@ -28,11 +28,19 @@ command :change do |c|
 end
 
 command :init do |c|
+  c.description = "Create a sample config file"
   c.syntax = "#{BINARY_NAME} init"
-  c.description = "Creates a sample config file"
   c.example "Creates .git_pairs in your home directory", "#{BINARY_NAME} init"
   c.action do |args, options|
     SimpleGitPair::Command::Init.new.run!
   end
 end
 
+command :add do |c|
+  c.description = "Add new pair to a list"
+  c.syntax = "#{BINARY_NAME} add <initials> <full_name>"
+  c.example "Adds New Guy to pairs list", "#{BINARY_NAME} add ng New Guy"
+  c.action do |args, options|
+    SimpleGitPair::Command::Add.new(args).run!
+  end
+end
