@@ -1,7 +1,7 @@
-Feature: Pair
+Feature: Change
   As a pair of Software Engineers
   I want to put our names on a commit message
-  So we both take creadit and responsibility for our code
+  So we both take credit and responsibility for our code
 
   Scenario: Change author to a pair
     Given there is a local repo
