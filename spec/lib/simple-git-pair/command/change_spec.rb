@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'simple-git-pair/command/change'
 
 describe SimpleGitPair::Command::Change do
@@ -8,14 +9,7 @@ describe SimpleGitPair::Command::Change do
   describe "#run!" do
     subject { command.run! }
 
-    context "there is NO pairs file" do
-      let(:opts) { ["some_initials"] }
-
-      before { command.stub(:ensure_pairs_file_exists).and_return false }
-      it "complains and exit" do
-        expect { subject }.to raise_error SystemExit
-      end
-    end
+    it_should_behave_like "command that ensures that pairs file exists"
 
     context "there is a pairs file" do
       context "and multiple initials are passed in" do
