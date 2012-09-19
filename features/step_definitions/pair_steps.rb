@@ -5,8 +5,14 @@ Given /^there is a local repo$/ do
   step 'I run `git init`'
 end
 
-Given /^there is no pairs file$/ do
-  step %Q{I remove the file "#{@pairs_file}"} if File.exists? @pairs_file
+Given /^there is (no|a) pairs file$/ do |yes_no|
+  file_should_exist = yes_no == "a" ? true : false
+
+  if file_should_exist
+    `git pair init`
+  else
+    step %Q{I remove the file "#{@pairs_file}"} if File.exists? @pairs_file
+  end
 end
 
 Then /^it creates a sample pairs file$/ do
