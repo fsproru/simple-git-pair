@@ -18,6 +18,6 @@ Feature: Change
     Given there is a local repo
     And there is no pairs file
     When I run `git pair nt ae` interactively
-    When I type "yes"
+    And I type "yes"
     Then it should offer to create a sample config
-    Then it creates a sample pairs file
+    And it creates a sample pairs file
