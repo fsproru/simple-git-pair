@@ -1,5 +1,6 @@
 source :rubygems
 
+gem 'rainbow'
 gemspec
 
 group :test do
