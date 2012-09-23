@@ -4,9 +4,18 @@ require 'simple-git-pair/helper'
 module SimpleGitPair
   module Command
     class Add < Base
+      USAGE = "git pair add <initials> <Full Name>"
+
       def run!
         exit 1 unless ensure_pairs_file_exists
-        initials, fullname = validate_opts
+
+        initials, fullname, valid_opts, errors = validate_opts
+        unless valid_opts
+          puts errors.join "\n"
+          puts "Usage: #{USAGE}"
+          exit 1
+        end
+
         pairs = Helper.read_pairs
         existent_user = pairs[initials]
         message = ""
@@ -29,12 +38,18 @@ module SimpleGitPair
 
       private
 
+      ##
+      # Validate and return options
+      #
+      # Returns: array
+      #   [initials, fullname, status, errors]
       def validate_opts
         initials = opts.shift
         fullname = opts.join " "
-        raise "Initials should contain no spaces" if /\s/.match opts.first
-        raise "Please provide a Full Name" unless opts[1]
-        [ initials, fullname ]
+        errors = []
+        errors << "Initials should contain no spaces" if /\s/.match initials
+        errors << "Please provide a Full Name" if fullname == ""
+        [ initials, fullname, errors.empty?, errors ]
       end
     end
   end

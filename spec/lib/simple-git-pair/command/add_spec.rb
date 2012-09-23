@@ -50,12 +50,20 @@ describe SimpleGitPair::Command::Add do
 
     context "initials have spaces" do
       let(:opts) { ["n g", "New_Guy"] }
-      it { expect {subject}.to raise_error RuntimeError }
+      it "returns error status and msg" do
+        initials, fullname, valid_opts, errors = subject
+        valid_opts.should be_false
+        errors.should_not be_empty
+      end
     end
 
     context "full name is not passed in" do
       let(:opts) { ["ng"] }
-      it { expect {subject}.to raise_error RuntimeError }
+      it "returns error status and msg" do
+        initials, fullname, valid_opts, errors = subject
+        valid_opts.should be_false
+        errors.should_not be_empty
+      end
     end
 
     context "initals and fullname are fine" do
