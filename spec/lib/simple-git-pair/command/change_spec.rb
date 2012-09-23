@@ -2,11 +2,11 @@ require 'spec_helper'
 require 'simple-git-pair/command/change'
 
 describe SimpleGitPair::Command::Change do
-  before { Object.stub(:system) }
   let(:opts) { [] }
   let(:command) { described_class.new opts }
 
   describe "#run!" do
+    before { command.stub :puts }
     subject { command.run! }
 
     it_should_behave_like "command that ensures that pairs file exists"

@@ -7,6 +7,8 @@ describe SimpleGitPair::Command::Add do
 
   describe "#run!" do
     subject { command.run! }
+    before { command.stub :puts }
+
     it_should_behave_like "command that ensures that pairs file exists"
 
     context "there is a pairs file" do
@@ -18,7 +20,6 @@ describe SimpleGitPair::Command::Add do
           before { command.stub(:agree).and_return true }
           it "overrides the pair" do
             SimpleGitPair::Helper.should_receive(:save_pairs).with({"ng" => "New Guy"})
-            command.should_receive(:puts).with('Updated ng to be New Guy')
             subject
           end
         end
@@ -27,7 +28,6 @@ describe SimpleGitPair::Command::Add do
           before { command.stub(:agree).and_return false }
           it "doesn't override and exits" do
             SimpleGitPair::Helper.should_not_receive :save_pairs
-            command.should_receive(:puts).with('New Guy was not added')
             expect {subject}.to raise_error SystemExit
           end
         end
@@ -39,7 +39,6 @@ describe SimpleGitPair::Command::Add do
 
         it "adds a pair" do
           SimpleGitPair::Helper.should_receive(:save_pairs).with({"og" => "Old Guy", "ng" => "New Guy"})
-          command.should_receive(:puts).with('Added New Guy')
           subject
         end
       end

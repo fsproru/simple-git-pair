@@ -24,7 +24,7 @@ module SimpleGitPair
 
         pairs[initials] = fullname
         Helper.save_pairs pairs
-        puts message
+        puts message.color(:green)
       end
 
       private
