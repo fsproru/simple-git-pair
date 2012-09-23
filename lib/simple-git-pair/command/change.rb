@@ -1,4 +1,5 @@
 require 'simple-git-pair/command/base'
+require 'rainbow'
 
 module SimpleGitPair
   module Command

@@ -1,4 +1,3 @@
-require 'rainbow'
 require File.expand_path("../lib/simple-git-pair/version", __FILE__)
 
 Gem::Specification.new do |s|
@@ -14,7 +13,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.executables  = "git-pair"
   s.test_files   = Dir["spec/**/*.rb", "features/**/*.rb"]
-  s.post_install_message = "Pair up! Run: git pair".color(:green)
+  s.post_install_message = "Pair up! Run: git pair"
 
   s.add_runtime_dependency 'commander'
   s.add_runtime_dependency 'rainbow'
