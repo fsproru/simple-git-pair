@@ -13,10 +13,8 @@ module SimpleGitPair
           exit 1
         end
 
-        puts `git config user.name`.chomp.color(:green) # output current username
+        puts `git config user.name`.chomp.color(:green)
       end
-
-      private
     end
   end
 end
