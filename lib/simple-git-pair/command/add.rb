@@ -4,7 +4,7 @@ require 'simple-git-pair/helper'
 module SimpleGitPair
   module Command
     class Add < Base
-      USAGE = "git pair add <initials> <Full Name>"
+      USAGE = "#{BINARY_NAME} add <initials> <Full Name>"
 
       def run!
         exit 1 unless ensure_pairs_file_exists
