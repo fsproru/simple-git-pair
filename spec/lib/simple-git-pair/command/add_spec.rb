@@ -43,6 +43,16 @@ describe SimpleGitPair::Command::Add do
         end
       end
     end
+
+    context "existent user has same initials and Full Name" do
+      let(:opts) { ["ng", "New", "Guy"] }
+      before { SimpleGitPair::Helper.stub(:read_pairs).and_return({"ng" => "New Guy"}) }
+
+      it "doesn't add a same user and exits" do
+        SimpleGitPair::Helper.should_not_receive(:save_pairs)
+        expect {subject}.to raise_error SystemExit
+      end
+    end
   end
 
   describe "#validate_opts" do

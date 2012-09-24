@@ -21,7 +21,10 @@ module SimpleGitPair
         message = ""
 
         if existent_user
-          unless agree("#{initials} has alredy taken by #{existent_user}. Override it with #{fullname}? (yes/no)")
+          if existent_user == fullname
+            puts "#{fullname} already exists"
+            exit 1
+          elsif not agree("#{initials} has alredy taken by #{existent_user}. Override it with #{fullname}? (yes/no)")
             puts "#{fullname} was not added"
             exit 1
           end
