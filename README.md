@@ -24,12 +24,16 @@ ae: Alfred Einstein
 ...
 ```
 
+## Available commands
+ - `git pair init` # create a sample config file
+ - `git pair add <initials> <Full Name>` # add a new pair to .git_pairs
+ - `git pair help` # display a help page
+
 ## Supported Rubies
  - 1.9.3
  - 1.8.7
 
 ## Future Development
- - git pair add <initial> <full_name> # adds an author to .git_pairs
  - git pair delete <initial> # deletes a pair from .git_pairs
  - git pair list # lists all available pairs
 
