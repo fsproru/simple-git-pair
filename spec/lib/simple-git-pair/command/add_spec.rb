@@ -16,16 +16,16 @@ describe SimpleGitPair::Command::Add do
         let(:opts) { ["ng", "New", "Guy"] }
         before { SimpleGitPair::Helper.stub(:read_pairs).and_return({"ng" => "Already Exists"}) }
 
-        context "and user agrees to override" do
-          before { command.stub(:agree).and_return true }
+        context "and user needs an update" do
+          before { command.stub(:user_needs_update?).and_return true }
           it "overrides the pair" do
             SimpleGitPair::Helper.should_receive(:save_pairs).with({"ng" => "New Guy"})
             subject
           end
         end
 
-        context "and user dissagrees to override" do
-          before { command.stub(:agree).and_return false }
+        context "and user does NOT need an update" do
+          before { command.stub(:user_needs_update?).and_return false }
           it "doesn't override and exits" do
             SimpleGitPair::Helper.should_not_receive :save_pairs
             expect {subject}.to raise_error SystemExit
@@ -41,16 +41,6 @@ describe SimpleGitPair::Command::Add do
           SimpleGitPair::Helper.should_receive(:save_pairs).with({"og" => "Old Guy", "ng" => "New Guy"})
           subject
         end
-      end
-    end
-
-    context "existent user has same initials and Full Name" do
-      let(:opts) { ["ng", "New", "Guy"] }
-      before { SimpleGitPair::Helper.stub(:read_pairs).and_return({"ng" => "New Guy"}) }
-
-      it "doesn't add a same user and exits" do
-        SimpleGitPair::Helper.should_not_receive(:save_pairs)
-        expect {subject}.to raise_error SystemExit
       end
     end
   end
@@ -84,6 +74,31 @@ describe SimpleGitPair::Command::Add do
       it "treats all options after intials as a fullname" do
         intials, fullname = subject
         fullname.should == "New Awesome Guy"
+      end
+    end
+  end
+
+  describe "#user_needs_update?" do
+    let(:existent_user) { "Old Guy" }
+    let(:initials) { "og" }
+    subject { command.send :user_needs_update?, existent_user, initials, fullname }
+
+    context "user already exists with same initials and fullname" do
+      let(:fullname) { "Old Guy" }
+      it {should be_false}
+    end
+
+    context "user already exists with same initials only" do
+      let(:fullname) { "New Guy" }
+
+      context "user disagrees to override it" do
+        before { command.stub(:agree).and_return false }
+        it {should be_false}
+      end
+
+      context "user agrees to override it" do
+        before { command.stub(:agree).and_return true }
+        it {should be_true}
       end
     end
   end

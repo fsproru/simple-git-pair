@@ -21,14 +21,7 @@ module SimpleGitPair
         message = ""
 
         if existent_user
-          if existent_user == fullname
-            puts "#{fullname} already exists"
-            exit 1
-          elsif not agree("#{initials} has alredy taken by #{existent_user}. Override it with #{fullname}? (yes/no)")
-            puts "#{fullname} was not added"
-            exit 1
-          end
-
+          exit 1 unless user_needs_update? existent_user, initials, fullname
           message = "Updated #{initials} to be #{fullname}"
         else
           message = "Added #{fullname}"
@@ -53,6 +46,18 @@ module SimpleGitPair
         errors << "Initials should contain no spaces" if /\s/.match initials
         errors << "Please provide a Full Name" if fullname == ""
         [ initials, fullname, errors.empty?, errors ]
+      end
+
+      def user_needs_update? existent_user, initials, fullname
+        if existent_user == fullname
+          puts "#{fullname} already exists"
+          false
+        elsif not agree("#{initials} has already taken by #{existent_user}. Override it with #{fullname}? (yes/no)")
+          puts "#{fullname} was not added"
+          false
+        else
+          true
+        end
       end
     end
   end
