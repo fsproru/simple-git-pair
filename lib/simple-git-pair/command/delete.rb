@@ -17,12 +17,12 @@ module SimpleGitPair
         end
 
         pairs = Helper.read_pairs
-        existent_user = pairs[initials]
+        existing_user = pairs[initials]
 
-        if existent_user
+        if existing_user
           pairs.delete initials
           Helper.save_pairs pairs
-          puts "Deleted #{initials}: #{existent_user}".color(:green)
+          puts "Deleted #{initials}: #{existing_user}".color(:green)
         else
           puts "There is no #{initials}"
         end

@@ -11,7 +11,7 @@ describe SimpleGitPair::Helper do
     subject {described_class.names_for initials}
 
     context "there is NO user in pairs file" do
-      let(:initials) { ["non_existent_pair"] }
+      let(:initials) { ["non_existing_pair"] }
       it { expect { subject }.to raise_error }
     end
 

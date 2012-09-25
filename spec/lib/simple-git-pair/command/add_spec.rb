@@ -81,9 +81,9 @@ describe SimpleGitPair::Command::Add do
   end
 
   describe "#user_needs_update?" do
-    let(:existent_user) { "Old Guy" }
+    let(:existing_user) { "Old Guy" }
     let(:initials) { "og" }
-    subject { command.send :user_needs_update?, existent_user, initials, fullname }
+    subject { command.send :user_needs_update?, existing_user, initials, fullname }
 
     context "user already exists with same initials and fullname" do
       let(:fullname) { "Old Guy" }

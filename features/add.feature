@@ -7,7 +7,7 @@ Feature: Add
     Given there is a local repo
     And there is a pairs file
 
-  Scenario: Add non existent pair
+  Scenario: Add non existing pair
     When I run `git pair add ng New Guy`
     And I run `git pair nt ng`
     Then the output should contain "Nikola Tesla & New Guy"
