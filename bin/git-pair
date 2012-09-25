@@ -3,7 +3,6 @@ require 'rubygems'
 require 'commander/import'
 require 'simple-git-pair'
 
-#TODO: figure out a better way to output usage first
 program :name,           "\n  Usage:\n    #{SimpleGitPair::BINARY_NAME} <initials>"
 program :version,        SimpleGitPair::VERSION
 program :description,    SimpleGitPair::SUMMARY
