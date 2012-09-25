@@ -12,6 +12,8 @@ describe SimpleGitPair::Command::Add do
     it_should_behave_like "command that ensures that pairs file exists"
 
     context "there is a pairs file" do
+      before { command.stub(:ensure_pairs_file_exists).and_return true }
+
       context "and there is already a pair with the same initials" do
         let(:opts) { ["ng", "New", "Guy"] }
         before { SimpleGitPair::Helper.stub(:read_pairs).and_return({"ng" => "Already Exists"}) }
