@@ -4,5 +4,7 @@ rvm:
   - 1.9.3
   - 1.8.7
 notifications:
-  recipients:
-      - a.tamoyking@gmail.com
+  email:
+    recipients:
+      - a.tamoykin@gmail.com
+    on_failure: always
