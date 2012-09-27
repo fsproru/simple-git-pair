@@ -3,7 +3,7 @@ Feature: Change
   I want to put our names on a commit message
   So we both take credit and responsibility for our code
 
-  Scenario: Change author to a pair
+  Scenario: Pair up!
     Given there is a local repo
     And there is no pairs file
     When I run `git pair init`

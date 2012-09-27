@@ -43,7 +43,7 @@ command :list do |c|
 end
 
 command :add do |c|
-  c.description = "Add new author to a list"
+  c.description = "Add new pair to a list"
   c.syntax = SimpleGitPair::Command::Add::USAGE
   c.example "Adds New Guy to pairs list", "#{SimpleGitPair::BINARY_NAME} add ng New Guy"
   c.action do |args, options|
@@ -52,7 +52,7 @@ command :add do |c|
 end
 
 command :delete do |c|
-  c.description = "Delete existing author"
+  c.description = "Delete existing pair"
   c.syntax = SimpleGitPair::Command::Delete::USAGE
   c.example "Deletes og from pairs list", "#{SimpleGitPair::BINARY_NAME} delete og"
   c.action do |args, options|

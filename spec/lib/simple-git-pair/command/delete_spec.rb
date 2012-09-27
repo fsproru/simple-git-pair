@@ -14,7 +14,7 @@ describe SimpleGitPair::Command::Delete do
     context "there is a pairs file" do
       before { command.stub(:ensure_pairs_file_exists).and_return true }
 
-      context "and specified author exists" do
+      context "and specified pair exists" do
         let(:opts) { ["dm"] }
         before { SimpleGitPair::Helper.stub(:read_pairs).and_return({"dm" => "Delete me", "km" => "Keep Me"}) }
 
@@ -24,7 +24,7 @@ describe SimpleGitPair::Command::Delete do
         end
       end
 
-      context "and specified author does NOT exist" do
+      context "and specified pair does NOT exist" do
         let(:opts) { ["dm"] }
         before { SimpleGitPair::Helper.stub(:read_pairs).and_return({"km" => "Keep Me"}) }
 
