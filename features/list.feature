@@ -9,4 +9,5 @@ Feature: List
 
   Scenario: List existing pairs
     When I run `git pair list`
-    Then the output should contain "nt: Nikola Tesla\nae: Alfred Einstein"
+    Then the output should contain "nt: Nikola Tesla"
+    And the output should contain "ae: Alfred Einstein"
