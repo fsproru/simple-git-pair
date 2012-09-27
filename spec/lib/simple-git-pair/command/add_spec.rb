@@ -4,10 +4,10 @@ require 'simple-git-pair/command/add'
 describe SimpleGitPair::Command::Add do
   let(:opts) { [] }
   let(:command) { described_class.new opts }
+  before { command.stub :puts }
 
   describe "#run!" do
     subject { command.run! }
-    before { command.stub :puts }
 
     it_should_behave_like "command that ensures that pairs file exists"
 
