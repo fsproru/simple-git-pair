@@ -33,6 +33,15 @@ command :init do |c|
   end
 end
 
+command :list do |c|
+  c.description = "List available pairs"
+  c.syntax = SimpleGitPair::Command::List::USAGE
+  c.example "Lists all available pairs", "#{SimpleGitPair::BINARY_NAME} list"
+  c.action do |args, options|
+    SimpleGitPair::Command::List.new.run!
+  end
+end
+
 command :add do |c|
   c.description = "Add new author to a list"
   c.syntax = SimpleGitPair::Command::Add::USAGE
