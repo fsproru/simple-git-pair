@@ -7,14 +7,14 @@ program :name,           "\n  Usage:\n    #{SimpleGitPair::BINARY_NAME} <initial
 program :version,        SimpleGitPair::VERSION
 program :description,    SimpleGitPair::SUMMARY
 program :int_message,    "Good bye"
-program :help,           'Example', 'git pair nt ae       Changes your git user.name to "Nicola Tesla & Alfred Einstein"'
+program :help,           'Example', 'git pair nt ae       Changes your git user.name to "Nikola Tesla & Alfred Einstein"'
 program :help_formatter, :compact
 
 default_command :change
 command :change do |c|
   c.description = "Change your git user.name"
   c.syntax = "#{SimpleGitPair::BINARY_NAME} change <initials>"
-  c.example 'Nicola Tesla & Alfred Einstein', "#{SimpleGitPair::BINARY_NAME} change nt ae"
+  c.example 'Nikola Tesla & Alfred Einstein', "#{SimpleGitPair::BINARY_NAME} change nt ae"
   c.action do |args, options|
     if args.empty?
       commands['help'].run
