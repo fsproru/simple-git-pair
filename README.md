@@ -13,29 +13,22 @@ This is especially useful for Github graphs and statistics.
 ```sh
 gem install simple-git-pair
 git pair init
-git pair nt ae # changes your git user.name to "Nicola Tesla & Alfred Einstein"
-```
-
-## Configuration
-Keep your pairs in `.git_pairs` file in your home directory in yaml format, e.g.
-```yml
-nt: Nicola Tesla
-ae: Alfred Einstein
-...
+git pair nt ae # changes your git user.name to "Nikola Tesla & Alfred Einstein"
 ```
 
 ## Available commands
- - `git pair init` # create a sample config file
- - `git pair add <initials> <Full Name>` # add a new pair
- - `git pair help` # display a help page
+```sh
+git pair init                        # create a sample .git_pairs file in your home directory
+git pair add <initials> <Full Name>  # add a new pair
+git pair delete <initial>            # delete a pair from .git_pairs
+git pair list                        # list all available pairs
+git pair help                        # display a help page
+```
 
 ## Supported Rubies
  - 1.9.3
+ - 1.9.2
  - 1.8.7
-
-## Future Development
- - git pair delete <initial> # deletes a pair from .git_pairs
- - git pair list # lists all available pairs
 
 ## Issues and Contributions
 Feel free to submit [issues](https://github.com/fsproru/simple-git-pair/issues), pull requests or [feedback](mailto: a.tamoykin@gmail.com)
