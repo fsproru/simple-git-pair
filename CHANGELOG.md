@@ -1,3 +1,9 @@
+## 0.2.0
+ - New command: git pair delete
+ - New command: git pair list
+ - Added support ruby-1.9.2 spport
+ - Bugfix: `git pair add` doesn't add a same pair
+
 ## 0.1.0
  - New command: git pair add
  - Added post install message
