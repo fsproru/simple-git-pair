@@ -27,7 +27,6 @@ git pair help                        # display a help page
 
 ## Supported Rubies
  - 1.9.3
- - 1.9.2
  - 1.8.7
 
 ## Issues and Contributions
