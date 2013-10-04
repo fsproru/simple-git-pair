@@ -6,7 +6,7 @@ Simple way to add your pair to a git commit message.
 
 ## Description
 Unlike many other gems it changes only user.name and does NOT change your email address in git config,
-so Github can associate your commit to github account properly. 
+so Github can associate your commit to github account properly.
 This is especially useful for Github graphs and statistics.
 
 ## Installation and Usage
@@ -26,8 +26,8 @@ git pair help                        # display a help page
 ```
 
 ## Supported Rubies
+ - 2.0.0
  - 1.9.3
- - 1.8.7
 
 ## Issues and Contributions
 Feel free to submit [issues](https://github.com/fsproru/simple-git-pair/issues), pull requests or [feedback](mailto: a.tamoykin@gmail.com)
