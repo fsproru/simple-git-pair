@@ -2,6 +2,7 @@
 .bundle
 vendor/bundle
 .rbenv-version
+.ruby-version
 tags
 Gemfile.lock
 .rvmrc
