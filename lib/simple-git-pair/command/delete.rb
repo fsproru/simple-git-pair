@@ -22,7 +22,7 @@ module SimpleGitPair
         if existing_user
           pairs.delete initials
           Helper.save_pairs pairs
-          puts "Deleted #{initials}: #{existing_user}".color(:green)
+          puts Rainbow("Deleted #{initials}: #{existing_user}").green
         else
           puts "There is no #{initials}"
         end

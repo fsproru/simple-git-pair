@@ -29,7 +29,7 @@ module SimpleGitPair
 
         pairs[initials] = fullname
         Helper.save_pairs pairs
-        puts message.color(:green)
+        puts Rainbow(message).green
       end
 
       private

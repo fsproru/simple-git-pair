@@ -14,7 +14,7 @@ module SimpleGitPair
           exit 1
         end
 
-        puts `git config user.name`.chomp.color(:green)
+        puts Rainbow(`git config user.name`.chomp).green
       end
     end
   end
