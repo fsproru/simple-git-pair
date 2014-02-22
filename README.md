@@ -26,10 +26,11 @@ git pair help                        # display a help page
 ```
 
 ## Supported Rubies
+ - 2.1.0
  - 2.0.0
  - 1.9.3
 
 ## Issues and Contributions
 Feel free to submit [issues](https://github.com/fsproru/simple-git-pair/issues), pull requests or [feedback](mailto: a.tamoykin@gmail.com)
 
-Copyright (c) 2012-2013 Alexander Tamoykin. Licensed under the [MIT LICENSE](https://github.com/fsproru/simple-git-pair/blob/master/LICENSE)
+Copyright (c) 2012-2014 Alexander Tamoykin. Licensed under the [MIT LICENSE](https://github.com/fsproru/simple-git-pair/blob/master/LICENSE)
