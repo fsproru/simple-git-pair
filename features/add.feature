@@ -15,6 +15,7 @@ Feature: Add
   Scenario: Update existing pair
     When I run `git pair add ae Another Einstein` interactively
     And I type "yes"
+    And I wait 2 seconds
     And I run `git pair nt ae`
     Then the output should contain "Nikola Tesla & Another Einstein"
 
