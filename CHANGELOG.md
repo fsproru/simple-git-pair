@@ -1,7 +1,13 @@
+## 0.3.0
+ - Added support ruby-2.0.0 support
+ - Added support ruby-2.1.0 support
+ - Locked runtime dependencies
+ - Thanks to @michaelrkn. Switched to preferred rainbow syntax to fix exceptions and failing specs
+
 ## 0.2.0
  - New command: git pair delete
  - New command: git pair list
- - Added support ruby-1.9.2 spport
+ - Added support ruby-1.9.2 support
  - Bugfix: `git pair add` doesn't add a same pair
 
 ## 0.1.0
