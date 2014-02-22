@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.test_files   = Dir["spec/**/*.rb", "features/**/*.rb"]
   s.post_install_message = "Pair up! Run: git pair"
 
-  s.add_runtime_dependency 'commander'
-  s.add_runtime_dependency 'rainbow'
+  s.add_runtime_dependency 'commander', '~> 4.1.6'
+  s.add_runtime_dependency 'rainbow', '~> 2.0.0'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'aruba'
   s.add_development_dependency 'cucumber'
