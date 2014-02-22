@@ -30,6 +30,10 @@ When /^I commit some changes$/ do
   step 'I run `git commit -m "some changes"`'
 end
 
+When /^I wait (\d+) seconds$/ do |seconds|
+  sleep seconds.to_i
+end
+
 Then /^I should see "(.*?)" on the commit$/ do |username|
   step 'I run `git --no-pager log`'
   step %Q{the output should contain "Author: #{username}"}
