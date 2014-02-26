@@ -1,3 +1,6 @@
+## 0.3.1
+ - Bugfix from @michaelrkn. Failed to display the info message when running `git pair init` with existing pairs file.
+
 ## 0.3.0
  - Added support ruby-2.0.0 support
  - Added support ruby-2.1.0 support
