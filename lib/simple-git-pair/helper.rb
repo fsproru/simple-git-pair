@@ -18,7 +18,7 @@ Please run: git pair init
       end
 
       def say_pairs_file_exists
-        puts "#{PAIRS_FILE_PATH} already exists. You're good to go.".color(:green)
+        puts Rainbow("#{PAIRS_FILE_PATH} already exists. You're good to go.").green
       end
 
       def names_for args
