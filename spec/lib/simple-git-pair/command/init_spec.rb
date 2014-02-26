@@ -2,12 +2,13 @@ require 'simple-git-pair/command/init'
 
 describe SimpleGitPair::Command::Init do
   describe "#run!" do
-    subject { described_class.new.run! }
+    let(:init_cmd) { described_class.new }
+    subject { init_cmd.run! }
 
     context "pairs file already exists" do
       before { SimpleGitPair::Helper.stub(:pairs_file_exists?).and_return true }
       it "complains and exit" do
-        SimpleGitPair::Helper.should_receive :say_pairs_file_exists
+        STDOUT.should_receive(:puts).with(/already exists/)
         subject
       end
     end
